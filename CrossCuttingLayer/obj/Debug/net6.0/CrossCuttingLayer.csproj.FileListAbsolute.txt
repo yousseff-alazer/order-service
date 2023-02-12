@@ -1,0 +1,42 @@
+D:\Repos\Payment .Net\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.deps.json
+D:\Repos\Payment .Net\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.runtimeconfig.json
+D:\Repos\Payment .Net\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.dll
+D:\Repos\Payment .Net\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.pdb
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.csproj.AssemblyReference.cache
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.AssemblyInfoInputs.cache
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.AssemblyInfo.cs
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.csproj.CoreCompileInputs.cache
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.dll
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\refint\CrossCuttingLayer.dll
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.pdb
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.genruntimeconfig.cache
+D:\Repos\Payment .Net\CrossCuttingLayer\obj\Debug\net6.0\ref\CrossCuttingLayer.dll
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.deps.json
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.runtimeconfig.json
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.dll
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.pdb
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.csproj.AssemblyReference.cache
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.AssemblyInfoInputs.cache
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.AssemblyInfo.cs
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.csproj.CoreCompileInputs.cache
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.dll
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\refint\CrossCuttingLayer.dll
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.pdb
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.genruntimeconfig.cache
+D:\Repos\Order .Net With Rabbitmq\order-service\CrossCuttingLayer\obj\Debug\net6.0\ref\CrossCuttingLayer.dll
+D:\Order Project\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.deps.json
+D:\Order Project\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.runtimeconfig.json
+D:\Order Project\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.dll
+D:\Order Project\order-service\CrossCuttingLayer\bin\Debug\net6.0\CrossCuttingLayer.pdb
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.csproj.AssemblyReference.cache
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.AssemblyInfoInputs.cache
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.AssemblyInfo.cs
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.csproj.CoreCompileInputs.cache
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.dll
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\refint\CrossCuttingLayer.dll
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.pdb
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\CrossCuttingLayer.genruntimeconfig.cache
+D:\Order Project\order-service\CrossCuttingLayer\obj\Debug\net6.0\ref\CrossCuttingLayer.dll
