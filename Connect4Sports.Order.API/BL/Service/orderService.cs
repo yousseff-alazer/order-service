@@ -177,7 +177,7 @@ namespace Connect4Sports.BL.Services
                 {
                     var PackagePriceRecord = new PackagePriceRecord();
                     var model = request.orderRecord;
-                    if ((model.SportId == null || model.SportId == 0 || model.providerId == 0 || model.packageId == 0 || string.IsNullOrWhiteSpace(model.ProviderType)) && model.ProviderType != nameof(ProviderType.VENUES))
+                    if ((model.SportId == null || model.SportId == 0 || model.providerId == 0 /*|| model.packageId == 0*/ || string.IsNullOrWhiteSpace(model.ProviderType)) && model.ProviderType != nameof(ProviderType.VENUES))
                     {
                         res.Message = "something missing order not added";
                         res.Success = false;
@@ -197,16 +197,16 @@ namespace Connect4Sports.BL.Services
                         //}
 
                         if (model.ProviderType == nameof(ProviderType.CHALLENGE))
-                            PackagePriceRecord = GetPaidPrice(model.providerId, model.ProviderType, model.numberOfSession, model.IsMonthly.Value, _appSettings,null,0,0,0);
+                            PackagePriceRecord = GetPaidPrice(model.providerId, model.ProviderType, model.numberOfSession, model.IsMonthly.Value, _appSettings,null,0,0,0,0);
                         else
                         {
                             if(model.SlotArray!=null&&model.SlotArray.Count()>0)
                             {
-                                PackagePriceRecord = GetPaidPrice(model.packageId, model.ProviderType, model.numberOfSession, model.IsMonthly.Value, _appSettings, model.ZoneId,model.SlotArray.Count(),model.providerId,model.SportId);
+                                PackagePriceRecord = GetPaidPrice(model.packageId, model.ProviderType, model.numberOfSession, model.IsMonthly.Value, _appSettings, model.ZoneId,model.SlotArray.Count(),model.providerId,model.SportId,model.TrainingTypeId);
                             }
                             else
                             {
-                                PackagePriceRecord = GetPaidPrice(model.packageId, model.ProviderType, model.numberOfSession, model.IsMonthly.Value, _appSettings, model.ZoneId,0,0,0);
+                                PackagePriceRecord = GetPaidPrice(model.packageId, model.ProviderType, model.numberOfSession, model.IsMonthly.Value, _appSettings, model.ZoneId,0,0,0, model.TrainingTypeId);
                             }
                         }
 
@@ -232,11 +232,19 @@ namespace Connect4Sports.BL.Services
                                 if (vat != null)
                                 {
                                     model.Vat = vat;
-                                    model.totalCost = model.Price + vat+model.TransportationFees;
+                                    model.totalCost = model.Price + vat;
+                                    if (model.TransportationFees != null)
+                                    {
+                                        model.totalCost = model.totalCost + model.TransportationFees;
+                                    }
                                 }
                                 else
                                 {
-                                    model.totalCost = model.Price+model.TransportationFees;
+                                    model.totalCost = model.Price;
+                                    if (model.TransportationFees != null)
+                                    {
+                                        model.totalCost = model.totalCost + model.TransportationFees;
+                                    }
                                 }
                                 if (discount != null)
                                 {
@@ -263,7 +271,7 @@ namespace Connect4Sports.BL.Services
                                 LogHelper.LogException("Order", "AddOrder", jsonRequest, ex);
                                 //return res;
                             }
-                            res.Message = "Added Successfully and you will pay " + PackagePriceRecord.price;
+                            res.Message = "Added Successfully and you will pay " + order.TotalCost;
                             res.Success = true;
                             res.StatusCode = HttpStatusCode.OK;
                             var orderRecord = new orderRecord()
@@ -316,7 +324,7 @@ namespace Connect4Sports.BL.Services
                         }
                         else
                         {
-                            res.Message = "something went wrong , missing data";
+                            res.Message = $"something went wrong , missing data + pack ={PackagePriceRecord.TransportFee}{PackagePriceRecord.price}{PackagePriceRecord.isSuccess}";
                             res.Success = false;
                         }
 
@@ -469,7 +477,7 @@ namespace Connect4Sports.BL.Services
 
             return IsExpire;
         }
-        public static PackagePriceRecord GetPaidPrice(long packageId, string providerType, int? numberOfSessions, bool isMonthly, Microsoft.Extensions.Options.IOptions<AppSettingsRecord> _appSettings, int? zoneId, int slotCount, long providerId, long? sportId)
+        public static PackagePriceRecord GetPaidPrice(long packageId, string providerType, int? numberOfSessions, bool isMonthly, Microsoft.Extensions.Options.IOptions<AppSettingsRecord> _appSettings, int? zoneId, int slotCount, long providerId, long? sportId, int trainingTypeId)
         {
             var packagePriceRecord = new PackagePriceRecord();
             string result = string.Empty;
@@ -492,7 +500,7 @@ namespace Connect4Sports.BL.Services
                 case nameof(ProviderType.COACH):
                     //zoneId
                     //int slotCount, long providerId, long? sportId
-                    Url = _appSettings.Value.Urls.Coach + "?packageId=" + packageId + "&numberOfSessions=" + numberOfSessions + "&isMonthly=" + isMonthly + "&zoneId=" + zoneId + "&slotCount=" + slotCount + "&providerId=" + providerId + "&sportId=" + sportId;
+                    Url = _appSettings.Value.Urls.Coach + "?packageId=" + packageId + "&numberOfSessions=" + numberOfSessions + "&isMonthly=" + isMonthly + "&zoneId=" + zoneId + "&slotCount=" + slotCount + "&providerId=" + providerId + "&sportId=" + sportId + "&trainingTypeId=" + trainingTypeId;
                     result = UIHelper.CreateRequest(Url, HttpMethod.Get, Url).Content.ReadAsStringAsync().Result;
                     break;
 
@@ -502,12 +510,12 @@ namespace Connect4Sports.BL.Services
                     break;
 
                 case nameof(ProviderType.PHYSIOTHERAPIST):
-                    Url = _appSettings.Value.Urls.Physiotherapist + "?packageId=" + packageId + "&numberOfSessions=" + numberOfSessions + "&isMonthly=" + isMonthly;
+                    Url = _appSettings.Value.Urls.Physiotherapist + "?packageId=" + packageId + "&numberOfSessions=" + numberOfSessions + "&isMonthly=" + isMonthly + "&zoneId=" + zoneId + "&slotCount=" + slotCount + "&providerId=" + providerId + "&sportId=" + sportId + "&trainingTypeId=" + trainingTypeId;
                     result = UIHelper.CreateRequest(Url, HttpMethod.Get, Url).Content.ReadAsStringAsync().Result;
                     break;
 
                 case nameof(ProviderType.NUTRITIONIST):
-                    Url = _appSettings.Value.Urls.Nutritionist + "?packageId=" + packageId + "&numberOfSessions=" + numberOfSessions + "&isMonthly=" + isMonthly;
+                    Url = _appSettings.Value.Urls.Nutritionist + "?packageId=" + packageId + "&numberOfSessions=" + numberOfSessions + "&isMonthly=" + isMonthly + "&zoneId=" + zoneId + "&slotCount=" + slotCount + "&providerId=" + providerId + "&sportId=" + sportId + "&trainingTypeId=" + trainingTypeId;
                     result = UIHelper.CreateRequest(Url, HttpMethod.Get, Url).Content.ReadAsStringAsync().Result;
                     break;
 
